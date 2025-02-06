@@ -63,6 +63,8 @@ cat 10-kubeadm.conf | sed "s:/usr/bin:${DOWNLOAD_DIR}:g" | sudo tee /usr/lib/sys
 chmod +x kubectl
 mkdir -p ~/.local/bin
 cp ./kubectl ~/.local/bin/kubectl
+echo 'export PATH=$HOME/.local/bin:$PATH' >>$HOME/.bashrc
+source $HOME/.bashrc
 
 sudo systemctl enable --now kubelet
 

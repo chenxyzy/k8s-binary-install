@@ -63,6 +63,8 @@ curl -LO "https://dl.k8s.io/release/${RELEASE}/bin/linux/amd64/kubectl"
 chmod +x kubectl
 mkdir -p ~/.local/bin
 cp ./kubectl ~/.local/bin/kubectl
+echo 'export PATH=$HOME/.local/bin:$PATH' >>$HOME/.bashrc
+source $HOME/.bashrc
 
 sudo systemctl enable --now kubelet
 
